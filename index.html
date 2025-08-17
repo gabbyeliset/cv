@@ -3,94 +3,153 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Gabby Elise</title>
-  <meta name="description" content="Gabby Elise — anthropology-in-progress, visitor experience ambassador, audio notes & small web things." />
+  <title>Gabby Elise — Portfolio</title>
+  <meta name="description" content="Gabby Elise — anthropology-in-progress, notes & discoveries, recordings." />
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    /* ---- palette (tweak these if you like) ---- */
     :root{
-      --bg:#0f1115; --panel:#151922; --text:#e9eef5; --muted:#9aa7b3; --accent:#86c5ff;
-      --radius:16px; --maxw:900px;
+      --bg:#0f1210;           /* deep charcoal-olive */
+      --paper:#1b201c;        /* panel background */
+      --ink:#e8e3dc;          /* main text (warm off-white) */
+      --muted:#b4aea3;        /* secondary text */
+      --accent:#c98b4a;       /* warm terracotta */
+      --accent-2:#5e6f5f;     /* moss green for borders */
+      --ring:rgba(201,139,74,.18);
+      --radius:16px; --maxw:960px;
     }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#f6f3ee; --paper:#ffffff; --ink:#2a261f; --muted:#6f6a61;
+        --accent:#8c5a2d; --accent-2:#7b8a7b; --ring:rgba(124,100,75,.18);
+      }
+    }
+
+    /* ---- basic styles ---- */
     *{box-sizing:border-box}
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
-    a{color:var(--accent);text-decoration:none}
+    html,body{margin:0;height:100%}
+    body{
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background:
+        radial-gradient(900px 500px at 10% -10%, rgba(94,111,95,.10), transparent 60%),
+        radial-gradient(1100px 700px at 120% 0%, rgba(201,139,74,.06), transparent 60%),
+        var(--bg);
+      color:var(--ink); line-height:1.65;
+    }
+    .wrap{max-width:var(--maxw); margin:0 auto; padding:28px 20px;}
+    a{color:var(--accent); text-decoration:none}
     a:hover{text-decoration:underline}
-    .wrap{max-width:var(--maxw);margin:0 auto;padding:24px}
-    header{display:flex;align-items:center;gap:14px;padding:18px 0}
-    .avatar{width:56px;height:56px;border-radius:50%;object-fit:cover;border:1px solid rgba(134,197,255,.4)}
-    .brand h1{margin:0;font-size:22px}
-    .brand p{margin:2px 0 0;color:var(--muted);font-size:14px}
-    .card{background:var(--panel);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);padding:18px;margin:14px 0}
-    .h{font-size:14px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:800;margin:0 0 8px}
-    .hero h2{margin:6px 0 8px;font-size:clamp(24px,4.5vw,40px);line-height:1.15}
-    .row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    @media (max-width:760px){.row{grid-template-columns:1fr}}
-    .btn{display:inline-block;border-radius:999px;padding:10px 14px;border:1px solid rgba(134,197,255,.45)}
-    footer{color:var(--muted);font-size:13px;margin:24px 0;text-align:center}
-    .list div{padding:10px 0;border-top:1px solid rgba(255,255,255,.06)}
-    .list div:first-child{border-top:0}
+    .eyebrow{letter-spacing:.16em; text-transform:uppercase; font-size:12px; color:var(--muted); font-weight:600}
+
+    /* header */
+    header{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:10px 0 8px}
+    .brand{display:flex; align-items:center; gap:14px}
+    .avatar{width:56px; height:56px; border-radius:50%; object-fit:cover; border:1px solid var(--accent-2)}
+    .title{font-family:Fraunces, serif; font-weight:700; font-size:20px; line-height:1.1}
+    nav a{color:var(--ink); margin-left:16px; font-weight:600; opacity:.9}
+    nav a:hover{opacity:1}
+
+    /* cards / sections */
+    .card{
+      background:var(--paper);
+      border:1px solid color-mix(in oklab, var(--accent-2) 55%, transparent);
+      border-radius:var(--radius);
+      padding:20px;
+      box-shadow:0 12px 28px -22px var(--ring);
+    }
+    section{margin:34px 0}
+    .h1{font-family:Fraunces, serif; font-size:clamp(28px,4.6vw,46px); line-height:1.1; margin:8px 0}
+    .sub{color:var(--muted); max-width:60ch}
+
+    .cta{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+    .btn{display:inline-block; border-radius:999px; padding:10px 14px; font-weight:600;
+         border:1px solid color-mix(in oklab, var(--accent) 60%, transparent); color:var(--ink)}
+    .btn.primary{background:var(--accent); border-color:var(--accent); color:#1a120b}
+    .btn:hover{filter:brightness(1.02)}
+
+    /* grid for “discoveries” */
+    .grid{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+    @media (max-width:760px){.grid{grid-template-columns:1fr}}
+
+    .card h3{font-family:Fraunces, serif; margin:6px 0 4px}
+    .meta{color:var(--muted); font-size:14px}
+    .hover-raise{transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease}
+    .hover-raise:hover{transform:translateY(-2px); box-shadow:0 16px 36px -24px var(--ring)}
+
+    footer{margin:40px 0 18px; color:var(--muted); font-size:13px; text-align:center}
   </style>
 </head>
 <body>
   <div class="wrap">
-    <!-- Top -->
+    <!-- header -->
     <header>
-      <!-- Replace src with your photo URL later -->
-      <img class="avatar" src="images/me.jpg" alt="Gabby Elise">
       <div class="brand">
-        <h1>Gabby Elise</h1>
-        <p>Anthropology (in-progress) • Visitor Experience Ambassador • Audio notes & small web things</p>
+        <!-- drop your portrait at images/me.jpg (optional) -->
+        <img class="avatar" src="images/me.jpg" alt="Gabby Elise">
+        <div>
+          <div class="title">Gabby Elise</div>
+          <div class="meta">Anthropology-in-progress • Visitor Experience Ambassador</div>
+        </div>
       </div>
+      <nav>
+        <a href="#discoveries">Discoveries</a>
+        <a href="#recordings">Recordings</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </header>
 
-    <!-- Intro -->
-    <section class="card hero">
-      <h2>Curious about people, place, and how we tell stories.</h2>
-      <p>I’m building a base: studying anthropology, working with visitors in Charleston, and making small, human-feeling projects. This site will hold recordings, tiny essays, and experiments as I go.</p>
-      <p>
-        <a class="btn" href="#work">Selected work</a>
-        <a class="btn" href="#recordings">Recordings</a>
-        <a class="btn" href="#contact">Contact</a>
-      </p>
-    </section>
-
-    <!-- Work -->
-    <section id="work" class="row">
-      <article class="card">
-        <div class="h">Writing / Notes</div>
-        <p>Short, readable pieces—observations from the floor at the visitor center, cultural pattern-spotting, and research tidbits.</p>
-      </article>
-      <article class="card">
-        <div class="h">Digital bits</div>
-        <p>Simple HTML/CSS demos and lightweight pages. Clean builds over complexity.</p>
-      </article>
-    </section>
-
-    <!-- Recordings (static for now; add files later) -->
-    <section id="recordings" class="card">
-      <div class="h">Recordings</div>
-      <div class="list" id="tracks">
-        <div>Coming soon — I’ll post a couple of short reads and field-note clips here.</div>
+    <!-- hero / intro -->
+    <section class="card">
+      <div class="eyebrow">Hello</div>
+      <h1 class="h1">Curious about people, places, and how we make meaning.</h1>
+      <p class="sub">I’m building a base: studying anthropology, helping visitors in Charleston, and collecting small, human-feeling projects. This is where I keep the things I’m learning—clear, warm, and minimal.</p>
+      <div class="cta">
+        <a class="btn primary" href="#discoveries">See work</a>
+        <a class="btn" href="#recordings">Listen</a>
       </div>
     </section>
 
-    <!-- About / Resume -->
-    <section class="row">
-      <article class="card">
-        <div class="h">About</div>
-        <p>I’m a student on the way to a proper university program, currently based in Charleston, SC. I like clarity, warmth, and projects that respect people’s time.</p>
-        <p><strong>Skills:</strong> research synthesis, clear writing, basic web (HTML/CSS/JS), editing for flow & mood.</p>
-      </article>
-      <aside class="card">
-        <div class="h">Resume</div>
-        <p><a href="#" class="btn">Download PDF</a></p>
-      </aside>
+    <!-- discoveries / portfolio cards -->
+    <section id="discoveries">
+      <div class="eyebrow">Discoveries</div>
+      <div class="grid">
+        <article class="card hover-raise">
+          <h3>Field Note: Market Voices</h3>
+          <p class="meta">Short observations from the floor; patterns in questions and routes.</p>
+          <p><a href="#">Read note →</a></p>
+        </article>
+        <article class="card hover-raise">
+          <h3>Mini Essay: Small Talk as Map</h3>
+          <p class="meta">A gentle argument for listening to what people ask first.</p>
+          <p><a href="#">Read essay →</a></p>
+        </article>
+        <article class="card hover-raise">
+          <h3>Tiny Web: One-Page Guide</h3>
+          <p class="meta">A lightweight page built in plain HTML/CSS—clarity over complexity.</p>
+          <p><a href="#">View demo →</a></p>
+        </article>
+        <article class="card hover-raise">
+          <h3>Audio: Two Street Interludes</h3>
+          <p class="meta">Texture, pacing, and mood—voice as material.</p>
+          <p><a href="#recordings">Listen →</a></p>
+        </article>
+      </div>
     </section>
 
-    <!-- Contact -->
+    <!-- recordings (simple list; add files later) -->
+    <section id="recordings" class="card">
+      <div class="eyebrow">Recordings</div>
+      <div id="tracks">
+        <div class="meta">I’ll post a couple of short reads and field-note clips here soon.</div>
+      </div>
+    </section>
+
+    <!-- contact -->
     <section id="contact" class="card">
-      <div class="h">Contact</div>
-      <p>Email me: <a href="mailto:gabbyeliset@gmail.com">gabbyeliset@gmail.com</a></p>
-      <p>Elsewhere: <a href="#">GitHub</a> · <a href="#">LinkedIn</a> · <a href="#">YouTube</a></p>
+      <div class="eyebrow">Contact</div>
+      <p>Email: <a href="mailto:gabbyeliset@gmail.com">gabbyeliset@gmail.com</a></p>
+      <p>Elsewhere: <a href="#" rel="me">GitHub</a> · <a href="#">LinkedIn</a> · <a href="#">YouTube</a></p>
     </section>
 
     <footer>© <span id="y"></span> Gabby Elise</footer>
