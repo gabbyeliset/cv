@@ -5,79 +5,58 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Gabby Elise — Portfolio</title>
   <meta name="description" content="Gabby Elise — anthropology-in-progress, notes & discoveries, recordings." />
-  <!-- fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    /* ---- palette (tweak these if you like) ---- */
+    /* —— palette (soft + airy) —— */
     :root{
-      --bg:#0f1210;           /* deep charcoal-olive */
-      --paper:#1b201c;        /* panel background */
-      --ink:#e8e3dc;          /* main text (warm off-white) */
-      --muted:#b4aea3;        /* secondary text */
-      --accent:#c98b4a;       /* warm terracotta */
-      --accent-2:#5e6f5f;     /* moss green for borders */
-      --ring:rgba(201,139,74,.18);
-      --radius:16px; --maxw:960px;
+      --bg:#f6f4ef;          /* parchment */
+      --ink:#222322;         /* charcoal */
+      --muted:#66675f;       /* soft gray */
+      --line:#e7e3db;        /* thin rule */
+      --accent:#3c6e71;      /* gentle sage */
+      --accent-2:#c67c48;    /* warm clay (sparingly) */
+      --maxw:940px;
     }
-    @media (prefers-color-scheme: light){
+    @media (prefers-color-scheme: dark){
       :root{
-        --bg:#f6f3ee; --paper:#ffffff; --ink:#2a261f; --muted:#6f6a61;
-        --accent:#8c5a2d; --accent-2:#7b8a7b; --ring:rgba(124,100,75,.18);
+        --bg:#101112; --ink:#ecebe7; --muted:#a7a79f; --line:#2a2b2b; --accent:#86c7cb; --accent-2:#e0a37a;
       }
     }
 
-    /* ---- basic styles ---- */
+    /* —— base —— */
     *{box-sizing:border-box}
     html,body{margin:0;height:100%}
-    body{
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      background:
-        radial-gradient(900px 500px at 10% -10%, rgba(94,111,95,.10), transparent 60%),
-        radial-gradient(1100px 700px at 120% 0%, rgba(201,139,74,.06), transparent 60%),
-        var(--bg);
-      color:var(--ink); line-height:1.65;
-    }
-    .wrap{max-width:var(--maxw); margin:0 auto; padding:28px 20px;}
-    a{color:var(--accent); text-decoration:none}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.65}
+    a{color:var(--accent);text-decoration:none}
     a:hover{text-decoration:underline}
-    .eyebrow{letter-spacing:.16em; text-transform:uppercase; font-size:12px; color:var(--muted); font-weight:600}
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:28px 20px}
+    .eyebrow{letter-spacing:.16em;text-transform:uppercase;font-size:12px;color:var(--muted);font-weight:600}
 
     /* header */
-    header{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:10px 0 8px}
-    .brand{display:flex; align-items:center; gap:14px}
-    .avatar{width:56px; height:56px; border-radius:50%; object-fit:cover; border:1px solid var(--accent-2)}
-    .title{font-family:Fraunces, serif; font-weight:700; font-size:20px; line-height:1.1}
-    nav a{color:var(--ink); margin-left:16px; font-weight:600; opacity:.9}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:8px 0 18px;border-bottom:1px solid var(--line)}
+    .brand{display:flex;align-items:center;gap:14px}
+    .avatar{width:54px;height:54px;border-radius:50%;object-fit:cover;border:1px solid var(--line)}
+    .title{font-family:"Libre Baskerville",serif;font-weight:700;font-size:20px;line-height:1.1}
+    nav a{margin-left:16px;color:var(--ink);opacity:.9}
     nav a:hover{opacity:1}
 
-    /* cards / sections */
-    .card{
-      background:var(--paper);
-      border:1px solid color-mix(in oklab, var(--accent-2) 55%, transparent);
-      border-radius:var(--radius);
-      padding:20px;
-      box-shadow:0 12px 28px -22px var(--ring);
-    }
-    section{margin:34px 0}
-    .h1{font-family:Fraunces, serif; font-size:clamp(28px,4.6vw,46px); line-height:1.1; margin:8px 0}
-    .sub{color:var(--muted); max-width:60ch}
+    /* sections are just spaced blocks with thin rules */
+    section{padding:22px 0;border-bottom:1px solid var(--line)}
+    section:last-of-type{border-bottom:0}
+    .h1{font-family:"Libre Baskerville",serif;font-size:clamp(28px,4.6vw,46px);line-height:1.12;margin:8px 0 6px}
+    .sub{color:var(--muted);max-width:70ch}
+    .underline{display:inline-block;border-bottom:2px solid var(--accent);padding-bottom:2px}
 
-    .cta{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
-    .btn{display:inline-block; border-radius:999px; padding:10px 14px; font-weight:600;
-         border:1px solid color-mix(in oklab, var(--accent) 60%, transparent); color:var(--ink)}
-    .btn.primary{background:var(--accent); border-color:var(--accent); color:#1a120b}
-    .btn:hover{filter:brightness(1.02)}
-
-    /* grid for “discoveries” */
-    .grid{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+    /* discoveries grid — airy */
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:6px}
     @media (max-width:760px){.grid{grid-template-columns:1fr}}
+    .card{padding:0}
+    .card h3{font-family:"Libre Baskerville",serif;margin:0 0 4px}
+    .meta{color:var(--muted);font-size:14px}
+    .item{padding:14px;border:1px solid var(--line);border-radius:10px}
+    .item:hover{border-color:color-mix(in oklab,var(--accent) 35%, var(--line))}
 
-    .card h3{font-family:Fraunces, serif; margin:6px 0 4px}
-    .meta{color:var(--muted); font-size:14px}
-    .hover-raise{transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease}
-    .hover-raise:hover{transform:translateY(-2px); box-shadow:0 16px 36px -24px var(--ring)}
-
-    footer{margin:40px 0 18px; color:var(--muted); font-size:13px; text-align:center}
+    footer{color:var(--muted);font-size:13px;margin:36px 0 18px;text-align:center}
   </style>
 </head>
 <body>
@@ -85,7 +64,6 @@
     <!-- header -->
     <header>
       <div class="brand">
-        <!-- drop your portrait at images/me.jpg (optional) -->
         <img class="avatar" src="images/me.jpg" alt="Gabby Elise">
         <div>
           <div class="title">Gabby Elise</div>
@@ -99,54 +77,49 @@
       </nav>
     </header>
 
-    <!-- hero / intro -->
-    <section class="card">
+    <!-- intro -->
+    <section>
       <div class="eyebrow">Hello</div>
-      <h1 class="h1">Curious about people, places, and how we make meaning.</h1>
-      <p class="sub">I’m building a base: studying anthropology, helping visitors in Charleston, and collecting small, human-feeling projects. This is where I keep the things I’m learning—clear, warm, and minimal.</p>
-      <div class="cta">
-        <a class="btn primary" href="#discoveries">See work</a>
-        <a class="btn" href="#recordings">Listen</a>
-      </div>
+      <h1 class="h1"><span class="underline">Notes on people and place</span></h1>
+      <p class="sub">I’m keeping a quiet portfolio of work-in-progress—observations from the floor in Charleston, small essays, and simple web things. Professional, but personal.</p>
     </section>
 
-    <!-- discoveries / portfolio cards -->
+    <!-- discoveries -->
     <section id="discoveries">
       <div class="eyebrow">Discoveries</div>
       <div class="grid">
-        <article class="card hover-raise">
+        <article class="item">
           <h3>Field Note: Market Voices</h3>
-          <p class="meta">Short observations from the floor; patterns in questions and routes.</p>
+          <p class="meta">Patterns in questions, routes, and little moments of care.</p>
           <p><a href="#">Read note →</a></p>
         </article>
-        <article class="card hover-raise">
+        <article class="item">
           <h3>Mini Essay: Small Talk as Map</h3>
-          <p class="meta">A gentle argument for listening to what people ask first.</p>
+          <p class="meta">How first questions reveal needs—and values.</p>
           <p><a href="#">Read essay →</a></p>
         </article>
-        <article class="card hover-raise">
-          <h3>Tiny Web: One-Page Guide</h3>
-          <p class="meta">A lightweight page built in plain HTML/CSS—clarity over complexity.</p>
+        <article class="item">
+          <h3>Tiny Web: One-page Guide</h3>
+          <p class="meta">Plain HTML/CSS; clarity over complexity.</p>
           <p><a href="#">View demo →</a></p>
         </article>
-        <article class="card hover-raise">
-          <h3>Audio: Two Street Interludes</h3>
-          <p class="meta">Texture, pacing, and mood—voice as material.</p>
+        <article class="item">
+          <h3>Audio: Two Interludes</h3>
+          <p class="meta">Voice, pacing, mood. Short listens.</p>
           <p><a href="#recordings">Listen →</a></p>
         </article>
       </div>
     </section>
 
-    <!-- recordings (simple list; add files later) -->
-    <section id="recordings" class="card">
+    <!-- recordings -->
+    <section id="recordings">
       <div class="eyebrow">Recordings</div>
-      <div id="tracks">
-        <div class="meta">I’ll post a couple of short reads and field-note clips here soon.</div>
-      </div>
+      <p class="meta">I’ll post a couple of short reads and field-note clips here soon.</p>
+      <!-- later, we can auto-render a list from /audio/index.json -->
     </section>
 
     <!-- contact -->
-    <section id="contact" class="card">
+    <section id="contact">
       <div class="eyebrow">Contact</div>
       <p>Email: <a href="mailto:gabbyeliset@gmail.com">gabbyeliset@gmail.com</a></p>
       <p>Elsewhere: <a href="#" rel="me">GitHub</a> · <a href="#">LinkedIn</a> · <a href="#">YouTube</a></p>
@@ -154,7 +127,7 @@
 
     <footer>© <span id="y"></span> Gabby Elise</footer>
   </div>
-
   <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
 </body>
 </html>
+
