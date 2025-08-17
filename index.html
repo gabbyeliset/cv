@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gabby Elise</title>
+  <meta name="description" content="Gabby Elise — anthropology-in-progress, visitor experience ambassador, audio notes & small web things." />
+  <style>
+    :root{
+      --bg:#0f1115; --panel:#151922; --text:#e9eef5; --muted:#9aa7b3; --accent:#86c5ff;
+      --radius:16px; --maxw:900px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:24px}
+    header{display:flex;align-items:center;gap:14px;padding:18px 0}
+    .avatar{width:56px;height:56px;border-radius:50%;object-fit:cover;border:1px solid rgba(134,197,255,.4)}
+    .brand h1{margin:0;font-size:22px}
+    .brand p{margin:2px 0 0;color:var(--muted);font-size:14px}
+    .card{background:var(--panel);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);padding:18px;margin:14px 0}
+    .h{font-size:14px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:800;margin:0 0 8px}
+    .hero h2{margin:6px 0 8px;font-size:clamp(24px,4.5vw,40px);line-height:1.15}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    @media (max-width:760px){.row{grid-template-columns:1fr}}
+    .btn{display:inline-block;border-radius:999px;padding:10px 14px;border:1px solid rgba(134,197,255,.45)}
+    footer{color:var(--muted);font-size:13px;margin:24px 0;text-align:center}
+    .list div{padding:10px 0;border-top:1px solid rgba(255,255,255,.06)}
+    .list div:first-child{border-top:0}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <!-- Top -->
+    <header>
+      <!-- Replace src with your photo URL later -->
+      <img class="avatar" src="images/me.jpg" alt="Gabby Elise">
+      <div class="brand">
+        <h1>Gabby Elise</h1>
+        <p>Anthropology (in-progress) • Visitor Experience Ambassador • Audio notes & small web things</p>
+      </div>
+    </header>
+
+    <!-- Intro -->
+    <section class="card hero">
+      <h2>Curious about people, place, and how we tell stories.</h2>
+      <p>I’m building a base: studying anthropology, working with visitors in Charleston, and making small, human-feeling projects. This site will hold recordings, tiny essays, and experiments as I go.</p>
+      <p>
+        <a class="btn" href="#work">Selected work</a>
+        <a class="btn" href="#recordings">Recordings</a>
+        <a class="btn" href="#contact">Contact</a>
+      </p>
+    </section>
+
+    <!-- Work -->
+    <section id="work" class="row">
+      <article class="card">
+        <div class="h">Writing / Notes</div>
+        <p>Short, readable pieces—observations from the floor at the visitor center, cultural pattern-spotting, and research tidbits.</p>
+      </article>
+      <article class="card">
+        <div class="h">Digital bits</div>
+        <p>Simple HTML/CSS demos and lightweight pages. Clean builds over complexity.</p>
+      </article>
+    </section>
+
+    <!-- Recordings (static for now; add files later) -->
+    <section id="recordings" class="card">
+      <div class="h">Recordings</div>
+      <div class="list" id="tracks">
+        <div>Coming soon — I’ll post a couple of short reads and field-note clips here.</div>
+      </div>
+    </section>
+
+    <!-- About / Resume -->
+    <section class="row">
+      <article class="card">
+        <div class="h">About</div>
+        <p>I’m a student on the way to a proper university program, currently based in Charleston, SC. I like clarity, warmth, and projects that respect people’s time.</p>
+        <p><strong>Skills:</strong> research synthesis, clear writing, basic web (HTML/CSS/JS), editing for flow & mood.</p>
+      </article>
+      <aside class="card">
+        <div class="h">Resume</div>
+        <p><a href="#" class="btn">Download PDF</a></p>
+      </aside>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="card">
+      <div class="h">Contact</div>
+      <p>Email me: <a href="mailto:gabbyeliset@gmail.com">gabbyeliset@gmail.com</a></p>
+      <p>Elsewhere: <a href="#">GitHub</a> · <a href="#">LinkedIn</a> · <a href="#">YouTube</a></p>
+    </section>
+
+    <footer>© <span id="y"></span> Gabby Elise</footer>
+  </div>
+
+  <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+</body>
+</html>
